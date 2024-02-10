@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% set title="Strona główna" %}
+
+{% block content %}
+
+<section class="wrapper style5 bg-dark text-light">
+  <div class="inner text-light">
+
+      <div class="box alt text-light">
+
+          <div class="col-12 text-light" align="center"><b class="fs-4">Sortowanie:</b><br><br>
+              <table class="table-striped table-bordered table-sm text-light mt-4 mb-4" align="center" id="dtBasicExample">
+
+                <thead>
+                  <tr>
+                      <th scope="col">#</th>
+                    <th scope="col">Nazwa</th>
+                    <th scope="col">Kurs</th>
+                    <th scope="col">Zmiana</th>
+                    <th scope="col">Zmiana procentowa</th>
+                    <th scope="col">Ilość transakcji</th>
+                    <th scope="col">Obrót</th>
+                    <th scope="col">Kurs otwarcia</th>
+                    <th scope="col">Maksimum</th>
+                    <th scope="col">Minimum</th>
+                    <th scope="col">Data</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in list_datas %}
+                    <tr>
+                      <th scope="row">{{ loop.index }}</th>
+                      <td>{{ item['name'] }}</td>
+                      <td>{{ item['rate'] }}</td>
+                      <td>{{ item['change'] }}</td>
+                      <td>{{ item['change_percent'] }}</td>
+                      <td>{{ item['number_of_transaction'] }}</td>
+                      <td>{{ item['trading'] }}</td>
+                      <td>{{ item['opening_rate'] }}</td>
+                      <td>{{ item['max_rate'] }}</td>
+                      <td>{{ item['min_rate'] }}</td>
+                      <td>{{ item['date_time'] }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table><br><br><br><br>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script>
+  $(document).ready(function()
+        {
+        $('#dtBasicExample').DataTable({
+            "order": [[3, "desc"]],
+            "language": {
+                "paginate": {
+                    "previous": "<button class='btn btn-primary'>Poprzednia</button>",
+                    "next": "<button class='btn btn-primary'>Następna</button>"
+                },
+                "info": "Wyświetlanie strony _PAGE_ z _PAGES_",
+                "infoEmpty": "Brak danych",
+                "infoFiltered": "(filtrowane z _MAX_ wszystkich rekordów)"
+            }
+        });
+        $('.dataTables_length').addClass('bs-select');
+        });
+  </script>
+          </div>
+
+
+        </div>
+      </div>
+  </div>
+</section>
+{% endblock %}
