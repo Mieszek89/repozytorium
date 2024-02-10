@@ -1,0 +1,5 @@
+Zmieniłeś saldo o 100
+{'price': 40, 'quantity': 7}
+Dokonałeś sprzedaży hulajnoga w ilości 2
+Dokonałeś zakupu produktu rower w ilości 2
+['Dokonałeś sprzedaży hulajnoga w ilości 2', 'Dokonałeś zakupu produktu rower w ilości 2']

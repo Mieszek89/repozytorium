@@ -1,0 +1,2 @@
+hulajnoga: {'price': 40, 'quantity': 7}
+rower: {'price': 100, 'quantity': 3}
